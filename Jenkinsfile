@@ -63,15 +63,15 @@ pipeline{
           }
         }
 
-        stage('docker hub push'){
-          steps{
-              sh'''
-              docker push ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:${BUILD_ID}"
-              docker tag ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:${BUILD_ID} ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:latest"
-              docker push ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:latest"
-              docker rmi -f $(docker images -q)
-              '''
-          }
+        stage('docker hub push') {
+            steps {
+                sh '''
+                docker push ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:${BUILD_ID}
+                docker tag ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:${BUILD_ID} ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:latest
+                docker push ${DOCKERHUB_CREDENTIALS_USR}/textboard_ad:latest
+                docker rmi -f $(docker images -q)
+                '''
+            }
         }
     }
 }
