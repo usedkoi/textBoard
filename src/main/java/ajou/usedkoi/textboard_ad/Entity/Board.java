@@ -15,11 +15,13 @@ public class Board {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String name;
     private String title;
     private String content;
 
     // 생성자
     public Board(String title, String content) {
+        this.name = name;
         this.title = title;
         this.content = content;
     }
